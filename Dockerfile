@@ -12,8 +12,8 @@ ENV PYTHONUNBUFFERED=1
 COPY hello.py .
 COPY test_hello.py .
 
-# Expose default port
+# Expose service port for deployment
 EXPOSE 8000
 
-# Default command: Execute hello.py
-CMD ["python", "hello.py"]
+# Deploy and serve application on container start
+CMD ["python", "hello.py", "--serve"]
