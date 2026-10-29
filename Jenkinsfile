@@ -2,18 +2,12 @@ pipeline {
     agent any
 
     environment {
+        PATH = "C:\\Users\\athar\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin;C:\\Program Files\\Docker\\Docker\\resources\\bin;C:\\Users\\athar\\AppData\\Local\\Microsoft\\WindowsApps;${env.PATH}"
         IMAGE_NAME = "mlops-hello-uat"
         IMAGE_TAG  = "latest"
     }
 
     stages {
-        stage('Checkout Source') {
-            steps {
-                echo 'Checking out source code from Git repository...'
-                checkout scm
-            }
-        }
-
         stage('Run Pytest Verification') {
             steps {
                 echo 'Executing Pytest unit verification (Item 11)...'
