@@ -8,9 +8,13 @@ WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
+# Install lightweight pytest for container test execution
+RUN pip install --no-cache-dir pytest
+
 # Copy application files (Item 10: Add Hello.py to docker)
 COPY hello.py .
 COPY test_hello.py .
+COPY evidently_monitor.py .
 
 # Expose service port for deployment
 EXPOSE 8000
